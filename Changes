@@ -1,4 +1,6 @@
 Release history for Devel-DefaultWarnings
 
+ - fix docs to clarify that it check the compiling context
+
 0.001000 - 2014-01-25
  - initial release

@@ -4,6 +4,7 @@ use warnings FATAL => 'all';
 my %META = (
   name => 'Devel-DefaultWarnings',
   license => 'perl_5',
+  dynamic_config => 0,
   prereqs => {
     configure => { requires => {
     } },

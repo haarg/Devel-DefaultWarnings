@@ -2,7 +2,7 @@ package Devel::DefaultWarnings;
 use strict;
 use warnings FATAL => 'all';
 
-our $VERSION = '0.001001';
+our $VERSION = '0.001002';
 
 use base 'Exporter';
 our @EXPORT = qw(warnings_default);

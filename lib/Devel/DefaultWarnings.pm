@@ -49,16 +49,17 @@ Devel::DefaultWarnings - Detect if warnings have been left at defaults
   }
   {
     use warnings;
-    my $def = warnings_default(); #false;
+    BEGIN { my $def = warnings_default(); } #false;
   }
   {
     no warnings;
-    my $def = warnings_default(); #false;
+    BEGIN { my $def = warnings_default(); } #false;
   }
 
 =head1 DESCRIPTION
 
-Check if lexical warnings have been changed from the default.
+Check if lexical warnings have been changed from the default.  Checks the
+current compiling context.
 
 =head1 FUNCTIONS
 

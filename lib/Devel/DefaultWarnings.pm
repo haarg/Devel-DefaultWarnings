@@ -45,7 +45,7 @@ Devel::DefaultWarnings - Detect if warnings have been left at defaults
 
   use Devel::DefaultWarnings;
   {
-    my $def = warnings_default(); #true;
+    BEGIN { my $def = warnings_default(); } #true;
   }
   {
     use warnings;

@@ -81,7 +81,7 @@ None yet.
 
 =head1 COPYRIGHT
 
-Copyright (c) 2014 the strictures L</AUTHOR> and L</CONTRIBUTORS>
+Copyright (c) 2014 the Devel::DefaultWarnings L</AUTHOR> and L</CONTRIBUTORS>
 as listed above.
 
 =head1 LICENSE

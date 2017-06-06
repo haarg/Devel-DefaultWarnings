@@ -7,16 +7,16 @@ our $VERSION = '0.001002';
 use base 'Exporter';
 our @EXPORT = qw(warnings_default);
 
-my $check = do {
-  if ($] >= 5.016) { q{
+my $check =
+  "$]" >= 5.016 ? q{
     !defined ${^WARNING_BITS};
-  } }
-  elsif ($] >= 5.008008) { q{
+  }
+  : "$]" >= 5.008008 ? q{
     my $w = ${^WARNING_BITS};
     local $^W = !$^W;
     $w ne ${^WARNING_BITS};
-  } }
-  elsif ($] >= 5.006001) { q{
+  }
+  : "$]" >= 5.006001 ? q{
     my $depth = 0;
     while (my ($sub, $bits) = (caller(++$depth))[3,9]) {
       if ($sub =~ /::BEGIN$/) {
@@ -26,12 +26,12 @@ my $check = do {
       }
     }
     ${^WARNING_BITS} eq $warnings::NONE;
-  } }
-  else { q{
+  }
+  : q{
     ${^WARNING_BITS} eq $warnings::NONE;
-  } }
-};
+  };
 
+sub warnings_default ();
 eval "sub warnings_default () { $check }; 1" or die $@;
 
 1;
